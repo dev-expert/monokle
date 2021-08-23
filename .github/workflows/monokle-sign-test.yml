@@ -75,7 +75,7 @@ jobs:
           EP_PRE_RELEASE: true
           MONOKLE_MACOS_CERTS: ${{ secrets.MONOKLE_MACOS_CERTS }}
           CSC_LINK: ${{ secrets.MONOKLE_MACOS_CERTS }}
-          CSC_IDENTITY_AUTO_DISCOVERY: false
+          CSC_IDENTITY_AUTO_DISCOVERY: true
 
       # Check Binary Size
       - name: Build Succeeded
