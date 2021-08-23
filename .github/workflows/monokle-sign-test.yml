@@ -65,17 +65,23 @@ jobs:
           # Set CI flag to false, or the build fails on all warnings, not just errors as locally.
           CI: false
 
+      - name: Add MacOS certs
+        run: chmod +x .github/workflows/scripts/add-osx-cert.sh && ./.github/workflows/scripts/add-osx-cert.sh
+        env:
+          CERTIFICATE_OSX_APPLICATION: ${{ secrets.MONOKLE_MACOS_CERTS }}
+          CERTIFICATE_PASSWORD: ${{ secrets.MONOKLE_MACOS_CERTS_PASSWORD }}
+
+      - name: Electron mac os security identities
+        run: security find-identity -v
+
       - name: Package and Publish
         run: |
-          echo "${MONOKLE_MACOS_CERTS}" > ~/sign.cert
           npm exec -c "electron-builder --publish \"always\""
-          shred -n 10 -u ~/sign.cert
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
           EP_PRE_RELEASE: true
-          MONOKLE_MACOS_CERTS: ${{ secrets.MONOKLE_MACOS_CERTS }}
           CSC_LINK: ${{ secrets.MONOKLE_MACOS_CERTS }}
-          CSC_IDENTITY_AUTO_DISCOVERY: true
+          CSC_KEY_PASSWORD: ${{ secrets.MONOKLE_MACOS_CERTS_PASSWORD }}
 
       # Check Binary Size
       - name: Build Succeeded
