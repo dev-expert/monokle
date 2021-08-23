@@ -74,7 +74,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.github_token }}
           EP_PRE_RELEASE: true
           MONOKLE_MACOS_CERTS: ${{ secrets.MONOKLE_MACOS_CERTS }}
-          CSC_LINK: ~/sign.cert
+          CSC_LINK: ${{ secrets.MONOKLE_MACOS_CERTS }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
 
       # Check Binary Size
