@@ -129,8 +129,14 @@
     "copyright": "Copyright © 2021 ${author}",
     "mac": {
       "category": "public.app-category.utilities",
-      "icon": "build/icon.png"
+      "icon": "build/icon.png",
+      "hardenedRuntime": true,
+      "entitlements": "./build/electron/src/entitlements.mac.inherit.plist",
+      "target": [
+        "dmg"
+      ]
     },
+    "afterSign": "./electron/afterSignHook.js",
     "dmg": {
       "icon": "build/icon.png"
     },

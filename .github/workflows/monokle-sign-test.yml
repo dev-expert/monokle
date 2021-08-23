@@ -37,7 +37,7 @@ jobs:
       - name: Add MacOS certs
         run: |
           ls -la
-          chmod +x ./.github/workflows/scripts/add-osx-cert.sh && ./.github/workflows/scripts/add-osx-cert.sh
+          chmod +x .github/workflows/scripts/add-osx-cert.sh && .github/workflows/scripts/add-osx-cert.sh
         env:
           CERTIFICATE_OSX_APPLICATION: ${{ secrets.MONOKLE_MACOS_CERTS }}
           CERTIFICATE_PASSWORD: ${{ secrets.MONOKLE_MACOS_CERTS_PASSWORD }}
