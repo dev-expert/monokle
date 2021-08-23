@@ -67,9 +67,9 @@ jobs:
 
       - name: Package and Publish
         run: |
-          echo "${MONOKLE_MACOS_CERTS}" > sign.cert
+          echo "${MONOKLE_MACOS_CERTS}" > ~/sign.cert
           npm exec -c "electron-builder --publish \"always\""
-          shred -n 10 -u sign.cert
+          shred -n 10 -u ~/sign.cert
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
           EP_PRE_RELEASE: true
