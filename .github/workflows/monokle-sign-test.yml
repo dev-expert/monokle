@@ -82,6 +82,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
           EP_PRE_RELEASE: true
+          NOTARIZE: true
           CSC_LINK: ${{ secrets.MONOKLE_MACOS_CERTS }}
           CSC_KEY_PASSWORD: ${{ secrets.MONOKLE_MACOS_CERTS_PASSWORD }}
 
