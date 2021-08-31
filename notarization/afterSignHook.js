@@ -13,7 +13,7 @@ module.exports = async function (params) {
   }
   console.log('afterSign hook triggered', params);
 
-  const package = require('./package.json');
+  const package = require(path.join(process.cwd(), './package.json'));
 
   // This should match the appId from electron-builder. It reads from
   // package.json so you won't have to maintain two separate configurations.
