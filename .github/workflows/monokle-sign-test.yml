@@ -117,7 +117,7 @@ jobs:
           ls -la
         if: ${{ always() }}
 
-  build-and-publishwindows:
+  build-and-publish-windows:
     runs-on: windows-latest
 
     steps:
