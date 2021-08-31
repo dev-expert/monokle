@@ -135,9 +135,9 @@
       "entitlements": "./electron/src/entitlements.mac.inherit.plist",
       "target": [
         "dmg"
-      ]
+      ],
+      "afterSign": "./notarization/afterSignHook.js"
     },
-    "afterSign": "./electron/afterSignHook.js",
     "dmg": {
       "icon": "build/icon.png"
     },

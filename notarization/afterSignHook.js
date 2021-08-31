@@ -4,6 +4,7 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 var electron_notarize = require('electron-notarize');
+console.log(process.cwd());
 var package = require('./package.json');
 
 module.exports = async function (params) {
